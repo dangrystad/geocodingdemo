@@ -25,8 +25,13 @@ function d3_ping(el, zipcodes) {
                        .range([0, 0.8]);
 
     let zipSel = d3.select('svg').selectAll('circle')
-                    .data(zipcodes, (d) => d.lat)
+                    .data(zipcodes,(d) => d.lat)
+                    //.attr('fill-opacity', 0.8);
                     .attr('fill-opacity', c => colorScale(c.ts));
+
+    console.log(zipcodes);
+    console.log(zipSel);;
+    //zipSel.exit().remove();
 
     zipSel.enter().append('circle')
                    .attr({

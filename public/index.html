@@ -41,7 +41,10 @@
 
 			var source = new EventSource('http://localhost:8080/events');
     	source.onmessage = function(e) {
-      	document.body.innerHTML += e.data + '<br>';
+        var a = new Array();
+        //a.push(e.data);
+        console.log(e.data);
+      	d3_ping(d3.select("#root"),JSON.parse(e.data));
     	};
     </script>
   </body>

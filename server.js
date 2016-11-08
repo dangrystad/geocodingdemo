@@ -42,7 +42,7 @@ function sendSSE(req, res) {
   // Sends a SSE every 5 seconds on a single connection.
   setInterval(function() {
     constructSSE(res, id, getRandomPosition() );
-  }, 5000);
+  }, 500);
 
   constructSSE(res, id, getRandomPosition());
 }
@@ -61,7 +61,7 @@ function debugHeaders(req) {
 }
 
 function getRandomPosition() {
-	return '{ lat: ' + getRandomInRange(-180, 180, 3)+', lon: ' + getRandomInRange(-90, 90, 3) + '}'
+	return '[{ "lat": ' + getRandomInRange(-90, 90, 3)+', "lon": ' + getRandomInRange(-180, 180, 3) + '}]'
 }
 
 function getRandomInRange(from, to, fixed) {
